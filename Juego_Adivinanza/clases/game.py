@@ -5,8 +5,10 @@ class Game:
         self.num_random = randrange(0,100)
         self.attempts = 0
         self.user_opt = 0
+        self.user_name = ""
         
     def play(self):
+        self.user_name = input("Ingrese su nombre: ")
         while True:
             try: 
                 self.user_opt = int(input("Ingrese el numero: "))
@@ -23,3 +25,10 @@ class Game:
                     print("Demasiado bajo, prueba mas alto")
                     self.attempts += 1
                 
+    def get_data(self):
+        user_data = {
+            "name":self.user_name,
+            "attemps": self.attempts
+        }
+        return user_data
+    

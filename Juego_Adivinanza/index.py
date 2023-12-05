@@ -1,6 +1,7 @@
 from clases.menu import Menu
 from clases.game import Game
 from helpers.user_in import user_in
+from helpers.save_data import save_data
 import os
 
 def main():
@@ -24,6 +25,8 @@ def main():
             #Inicializar Game
             game = Game()
             game.play()
+            #guardar en base de datos la puntuacion
+            save_data(game.get_data(),game.attempts)
             break
         
         elif option == 2:
