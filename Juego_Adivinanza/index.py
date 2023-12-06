@@ -26,7 +26,7 @@ def main():
             game = Game()
             game.play()
             #guardar en base de datos la puntuacion
-            save_data(game.get_data(),game.attempts)
+            save_data(game.get_data())
             break
         
         elif option == 2:

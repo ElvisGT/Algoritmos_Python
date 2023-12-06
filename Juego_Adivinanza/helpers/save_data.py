@@ -13,10 +13,11 @@ def save_data(user_data):
             current_data = load(f)
             #verifico si existe el nombre en el registro
             for dicts in current_data:
-                for key,value in dicts.items():
-                    if value.lower() == user_data["name"].lower():
+                    if dicts["name"].lower() == user_data["name"].lower():
                         is_name = True
-                        print(key)
+                        #Si la puntuacion es mayor
+                        if dicts["attempts"] < user_data["attempts"]:
+                            dicts["attempts"] = user_data["attempts"]
             #Si el nombre no existe
             if not is_name:
                 current_data.append(user_data)
@@ -29,6 +30,3 @@ def save_data(user_data):
     print("Se ha guardado exitosamente")
     
     
-save_data({
-    "name":"elvis"
-})

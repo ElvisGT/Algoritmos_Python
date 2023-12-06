@@ -28,7 +28,7 @@ class Game:
     def get_data(self):
         user_data = {
             "name":self.user_name,
-            "attemps": self.attempts
+            "attempts": self.attempts
         }
         return user_data
     
