@@ -11,6 +11,9 @@ def get_data():
     with open(file_path,"r") as f:
         table_data = load(f)
         
+    #Ordenar por los intentos
+    table_data.sort(key= lambda attempts: attempts["attempts"])
+        
     for data in table_data:
         print("-------------------------")
         print(f"Nombre: {data["name"]} \nIntentos: {data["attempts"]}")
