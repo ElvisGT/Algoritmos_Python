@@ -2,6 +2,7 @@ from clases.menu import Menu
 from clases.game import Game
 from helpers.user_in import user_in
 from helpers.save_data import save_data
+from helpers.get_data import get_data
 import os
 
 def main():
@@ -13,7 +14,7 @@ def main():
     option = user_in()
     
     while True:
-        if option < 0 or option > 3:
+        if option < 0 or option > 4:
             print("Opcion no valida")
             menu.show_menu()
             option = user_in()
@@ -30,9 +31,17 @@ def main():
             break
         
         elif option == 2:
-            print("Tabla de puntuaciones")
-            break
-            
+            get_data()
+            option = user_in()
+            if option == 4:
+                menu.show_menu()
+            else:
+                print("Saliendo...")
+                os._exit(0)
+        
+        elif option == 4:
+            menu.show_menu()
+            option = user_in()
 
 if __name__ == "__main__":
     main()
